@@ -20,8 +20,8 @@ public class BookingController {
     }
 
     @GetMapping("/{userid}")
-    public ResponseEntity<ApiResponse<List<Booking>>> getBookingByCustomer (@RequestParam Long id) {
-        List<Booking> bookings = this.bookingService.getBookingByUser(id);
+    public ResponseEntity<ApiResponse<List<Booking>>> getBookingByCustomer (@PathVariable Long userid) {
+        List<Booking> bookings = this.bookingService.getBookingByUser(userid);
         if (!bookings.isEmpty()) {
             return ResponseEntity.ok(new ApiResponse<>( true, "successfully obtained bookings", bookings));
         }

@@ -20,7 +20,7 @@ public class RoomsController {
     }
 
     @GetMapping("/{hotelId}")
-    public ResponseEntity<ApiResponse<List<Rooms>>> getRoomsByHotelId (@RequestParam Long hotelId) {
+    public ResponseEntity<ApiResponse<List<Rooms>>> getRoomsByHotelId (@PathVariable Long hotelId) {
         return ResponseEntity.ok(new ApiResponse<>(true, "Successfully obtained rooms!!!", this.roomsService.getAllRoomsByHotelId(hotelId)));
     }
 

@@ -25,7 +25,7 @@ public class HotelController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<Hotel>> getHotelById (@RequestParam Long id) {
+    public ResponseEntity<ApiResponse<Hotel>> getHotelById (@PathVariable Long id) {
         Hotel hotel = this.hotelService.getHotelById(id);
         if (hotel != null) {
             return ResponseEntity.ok(new ApiResponse<>(true, "Successfully obtained hotel!!! 🎉🎉🎉", hotel));
